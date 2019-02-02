@@ -11,10 +11,50 @@ public class PageController {
 	@RequestMapping(value = { "/", "/home", "/index" })
 	public ModelAndView index() {
 		ModelAndView mv = new ModelAndView("page");
-		mv.addObject("greetings", "Welcome to EzeeDecor");
+		mv.addObject("title", "Home");
+		mv.addObject("userClickHome", true);
+		return mv;
+	}
+	
+	@RequestMapping(value = "/about")
+	public ModelAndView about() {
+		ModelAndView mv = new ModelAndView("page");
+		mv.addObject("title", "About Us");
+		mv.addObject("userClickAbout", true);
+		return mv;
+	}
+	
+	@RequestMapping(value ="/design")
+	public ModelAndView design() {
+		ModelAndView mv = new ModelAndView("page");
+		mv.addObject("title", "Design");
+		mv.addObject("userClickDesign", true);
+		return mv;
+	}
+	
+	@RequestMapping(value ="/makeover")
+	public ModelAndView makeover() {
+		ModelAndView mv = new ModelAndView("page");
+		mv.addObject("title", "Makeover");
+		mv.addObject("userClickMakeover", true);
+		return mv;
+	}
+	
+	@RequestMapping(value ="/samples")
+	public ModelAndView samples() {
+		ModelAndView mv = new ModelAndView("page");
+		mv.addObject("title", "Samples");
+		mv.addObject("userClickSamples", true);
 		return mv;
 	}
 
+	
+	
+	
+	
+	
+	
+	
 	/*
 	 * @RequestMapping(value="/test") public ModelAndView
 	 * test(@RequestParam(value="greetings",required=false)String greetings){
