@@ -19,6 +19,10 @@
             <a class="nav-link" href="${contextRoot}/about">About Us</a>
           </li>
           
+          <li id="shop" class="nav-item" >
+            <a class="nav-link" href="${contextRoot}/show/all/products">Shop</a>
+          </li>
+          
           <li id="design" class="nav-item">
             <a class="nav-link" href="${contextRoot}/design">Design</a>
           </li>
@@ -28,8 +32,12 @@
           </li>
           
           <li id="samples" class="nav-item">
-            <a class="nav-link" href="${contextRoot}/samples">Samples</a>
+            <a class="nav-link" href="${contextRoot}/samples">Samples</a></li>
+            
+            <li id="manageProducts" class="nav-item" >
+            <a class="nav-link" href="${contextRoot}/manage/products">Manage Products</a>
           </li>
+          
         </ul>
       </div>
     </div>
