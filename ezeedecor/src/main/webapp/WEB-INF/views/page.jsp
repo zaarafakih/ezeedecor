@@ -31,7 +31,7 @@
 </script>
 
 <!-- Bootstrap core CSS 
-
+<!--this is the cdn link-->
 
 <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
 
