@@ -1,5 +1,7 @@
 package net.zf.edbackend.dto;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -8,10 +10,18 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.Pattern;
+
+import org.hibernate.validator.constraints.NotBlank;
 
 @Entity
 @Table(name="address")
-public class address {
+public class address implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -30,6 +40,8 @@ public class address {
 	}
 	
 	@Column(name="postal_code")
+	@NotBlank(message="Please enter your Postal code!")
+	@Pattern(regexp="([0-9]{6})",message="Enter a valid postal code")
 	private String postalCode;
 	
 	private boolean shipping;
@@ -39,15 +51,22 @@ public class address {
 	
 
 	@Column(name="address_line_1")
+	@NotBlank(message="Please enter your address!")
 	private String addressLine1;
 	
 	@Column(name="address_line_2")
 	private String addressLine2;
 	
+	@NotBlank(message="Please enter your City!")
+	@Pattern(regexp="(^([a-z]|[A-Z])+$)",message="Enter a valid city name")
 	private String city;
 	
+	@NotBlank(message="Please enter your state!")
+	@Pattern(regexp="(^([a-z]|[A-Z])+$)",message="Enter a valid state name")
 	private String state;
 	
+	@NotBlank(message="Please enter your country!")
+	@Pattern(regexp="(^([a-z]|[A-Z])+$)",message="Enter a valid country name")
 	private String country;
 	
 	public int getId() {

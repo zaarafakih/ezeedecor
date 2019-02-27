@@ -267,6 +267,38 @@ $(function() {
 		});	
 	}
 	
+	//validation code for loginform
+	var loginForm=$('#loginForm');
+	if(loginForm.length){
+		loginForm.validate({
+			rules: {
+				username: {
+					required:true,
+					email:true
+				},
+				password:{
+					required:true
+				}
+			},
+			messages:{
+				username:{
+					required:'Please enter the username!',
+					email:'Please enter a valid email address!'
+				},
+				password:{
+					required:'Please enter the password!'
+					
+				}
+			},
+			errorElement:'em',
+			errorPlacement: function(error,element){
+				//add class of help-block
+				error.addClass('help-block');
+				error.insertAfter(element);
+			}
+		});	
+	}
+	
 	
 	// dismissing alert after 3 seconds
 	var $alert = $('.alert');

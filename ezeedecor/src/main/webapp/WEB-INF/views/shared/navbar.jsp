@@ -5,8 +5,20 @@
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
+      
+      <ul class="nav navbar-nav navbar-right">
+           <li id="register" class="nav-item" >
+            <a class="nav-link" href="${contextRoot}/register">SignUp</a>
+          </li>
+          
+          <li id="Login" class="nav-item" >
+            <a class="nav-link" href="${contextRoot}/login">Login</a>
+          </li>
+        </ul>
+      <br/><br/>
       <div class="collapse navbar-collapse" id="navbarResponsive">
       
+       
         <ul class="navbar-nav ml-auto">
         
           <li id="home" class="nav-item">
@@ -37,8 +49,9 @@
             <li id="manageProducts" class="nav-item" >
             <a class="nav-link" href="${contextRoot}/manage/products">Manage Products</a>
           </li>
+          </ul>
           
-        </ul>
+         
       </div>
     </div>
   </nav>

@@ -121,6 +121,20 @@ public class PageController {
 		mv.addObject("userClickViewProduct","true");
 		return mv;
 	}
+	
+	@RequestMapping(value = "/register")
+	public ModelAndView register() {
+		ModelAndView mv = new ModelAndView("page");
+		mv.addObject("title", "Register me");
+		return mv;
+	}
+
+	@RequestMapping(value = "/login")
+	public ModelAndView login() {
+		ModelAndView mv = new ModelAndView("login");
+		mv.addObject("title", "Login");
+		return mv;
+	}
 
 	/*
 	 * @RequestMapping(value="/test") public ModelAndView
