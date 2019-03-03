@@ -5,13 +5,15 @@ import java.io.Serializable;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
-import javax.persistence.Transient;
+
 import javax.validation.constraints.Pattern;
+
 
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.Length;
@@ -51,16 +53,6 @@ public class user implements Serializable{
 	private String password;
 	
 	
-	@Transient
-	private String confirmPassword;
-	
-	public String getConfirmPassword() {
-		return confirmPassword;
-	}
-
-	public void setConfirmPassword(String confirmPassword) {
-		this.confirmPassword = confirmPassword;
-	}
 
 	@Email
 	private String email;
@@ -71,7 +63,7 @@ public class user implements Serializable{
 	@Pattern(regexp="((^[987])+(([0-9]{9})+$))",message="Enter a valid phone number!")
 	private String contactNumber;
 	
-	@OneToOne(mappedBy="userr",cascade=CascadeType.ALL)
+	@OneToOne(mappedBy="userr",cascade=CascadeType.ALL,fetch=FetchType.EAGER)
 	private cart cart;
 	
 	public int getId() {
@@ -145,6 +137,8 @@ public class user implements Serializable{
 	public void setContactNumber(String contactNumber) {
 		this.contactNumber = contactNumber;
 	}
+
+
 
 	
 }

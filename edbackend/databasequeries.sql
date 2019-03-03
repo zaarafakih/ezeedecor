@@ -55,7 +55,7 @@ constraint fk_cart_user_id foreign key(user_id) references user_detail(id)
 
 insert into user_detail(
 first_name,last_name,role,enabled,password,email,contact_number) VALUES(
-'Salman','Khan','ADMIN',true,'admin123','ad@gmail.com','8989898989'
+'Salman','Khan','ADMIN',true,'admin123','salmankhan@gmail.com','8989898989'
 );
 
 insert into user_detail(
@@ -121,6 +121,20 @@ code,name,brand,description,unit_price,quantity,is_active,category_id,supplier_i
 
 ALTER TABLE user_detail 
 DROP FOREIGN KEY fk_cart_user_id;
+
+create table cart_line(
+id int  not null auto_increment,,
+cart_id int,
+total decimal(10,2),
+product_id int,
+product_count int,
+buying_price decimal(10,2),
+is_available boolean,
+constraint pk_cartline_id primary key (id),
+constraint fk_product_id foreign key(product_id) references product (id),
+constraint fk_cart_id foreign key(cart_id) references cart (id)
+
+);
 
 
 

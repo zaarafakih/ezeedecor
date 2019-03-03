@@ -3,6 +3,7 @@ package net.zf.ezeedecor.handler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.binding.message.MessageBuilder;
 import org.springframework.binding.message.MessageContext;
+//import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Component;
 
 import net.zf.edbackend.dao.UserDAO;
@@ -16,6 +17,9 @@ public class RegisterHandler {
 
 	@Autowired
 	private UserDAO userDAO;
+	
+	/*@Autowired
+	private BCryptPasswordEncoder passwordEncoder;*/
 	
 	public RegisterModel init(){
 		return new RegisterModel();
@@ -32,17 +36,9 @@ public class RegisterHandler {
 	}
 	
 	public String validateUser(user userr,MessageContext error){
-		String transitionValue="succcess";
-		
-		if(!(userr.getPassword().equals(userr.getConfirmPassword()))){
-			error.addMessage(new MessageBuilder()
-					.error()
-					.source("confirmPassword")
-					.defaultText("Password does not match the confirm password")
-					.build());
-			transitionValue="failure";
-		}
-		if(userDAO.getUserByEmail(userr.getEmail()) != null){
+		String transitionValue="success";
+	
+		if((userDAO.getUserByEmail(userr.getEmail())) != null){
 			error.addMessage(new MessageBuilder()
 					.error()
 					.source("email")
@@ -53,23 +49,27 @@ public class RegisterHandler {
 		return transitionValue;
 	}
 	
-	public String saveAll(RegisterModel registerModel){
-		String transitionValue="success";
+	public String saveAll(RegisterModel model){
+		//String transitionValue="success";
 		
 		//fetch user
 		
-		user userr=registerModel.getUserr();
+		user userr=model.getUserr();
 		if(userr.getRole().equals("user")){
 			net.zf.edbackend.dto.cart cart=new cart();
 			cart.setUserr(userr);
 			userr.setCart(cart);
 		}
 		
+		
+		//encode password
+		//userr.setPassword(passwordEncoder.encode(userr.getPassword()));
+		
 		//save user
 		userDAO.addUser(userr);
 		
 		//get address
-		address billing=registerModel.getBilling();
+		address billing=model.getBilling();
 		billing.setUserr(userr);
 		billing.setBilling(true);
 		
@@ -77,6 +77,6 @@ public class RegisterHandler {
 		//save address
 		userDAO.addAddress(billing);
 		
-		return transitionValue;
+		return "success";
 	}
 }

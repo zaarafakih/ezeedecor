@@ -27,7 +27,7 @@ public class UserTestCase {
 
 	}
 
-	@Test
+	/*@Test
 	public void getListAdd(){
 		user = userDAO.getUserByEmail("mkhot@gmail.com");
 		
@@ -38,7 +38,7 @@ public class UserTestCase {
 		
 		assertEquals("Do not match","Dombivli",userDAO.getBillingAddress(user).getCity());
 	}
-	
+	*/
 	
 	/*@Test
 	public void testAddress(){
@@ -97,23 +97,33 @@ public class UserTestCase {
 	
 	
 	
-	/*@Test
+	@Test
 	public void testaddUser(){
 		user=new user();
-		user.setFirstName("Mohammad");
-		user.setLastName("Khot");
-		user.setEmail("mkhot@gmail.com");
-		user.setPassword("mammu123");
-		user.setContactNumber("8976543210");
+		user.setFirstName("test3");
+		user.setLastName("test3surname");
+		user.setEmail("test3@gmail.com");
+		user.setPassword("test3123");
+		//user.setConfirmPassword(user.getPassword());
+		user.setContactNumber("8976546783");
 		user.setRole("user");
 		if(user.getRole().equals("user")){
 			cart=new cart();
 			cart.setUserr(user);
 			user.setCart(cart);
 		}
+		address=new address();
+		address.setUserr(user);
+		address.setAddressLine1("Test 3's home");
+		address.setBilling(true);
+		address.setCity("kalyan");
+		address.setCountry("India");
+		address.setPostalCode("421301");
+		address.setState("Maharashtra");
+		
 		assertEquals("Failed to add user",true,userDAO.addUser(user));
 		
-	}*/
+	}
 	
 
 	/*@Test

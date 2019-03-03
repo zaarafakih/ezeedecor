@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
 
 <spring:url var="css" value="/resources/css" />
 <spring:url var="js" value="/resources/js" />
@@ -23,6 +24,8 @@
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="description" content="">
 <meta name="author" content="">
+<meta name="_csrf" content="${_csrf.token}">
+<meta name="_csrf_header" content="${_csrf.headerName}">
 
 <title>EzeeDecor-${title}</title>
 <script>
@@ -33,9 +36,25 @@
 <!-- Bootstrap core CSS 
 <!--this is the cdn link-->
 
-<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
+<script src="${js}/jquery.js"></script>
 
+
+
+
+
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o" crossorigin="anonymous"></script>
+<!-- 
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+ -->
+
+<!-- 
+ <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
 -->
+
 
 <link href="${css}/bootstrap.css" rel="stylesheet">
 <link href="${css}/bootstrap.min.css" rel="stylesheet">
@@ -58,8 +77,8 @@
 
 <style type="text/css">
 .dataTableImg {
-	width: 100px;
-	height: 100px;
+	width: 250px;
+	height: 250px;
 }
 
 .viewProductImg {
@@ -130,8 +149,56 @@ input:checked+.slider:before {
 .slider.round:before {
 	border-radius: 50%;
 }
+
+<!-- css for cart-->
+.table>tbody>tr>td, .table>tfoot>tr>td{
+    vertical-align: middle;
+}
+@media screen and (max-width: 600px) {
+    table#cart tbody td .form-control{
+		width:20%;
+		display: inline !important;
+	}
+	.actions .btn{
+		width:36%;
+		margin:1.5em 0;
+	}
+	
+	.actions .btn-info{
+		float:left;
+	}
+	.actions .btn-danger{
+		float:right;
+	}
+	
+	table#cart thead { display: none; }
+	table#cart tbody td { display: block; padding: .6rem; min-width:320px;}
+	table#cart tbody tr td:first-child { background: #333; color: #fff; }
+	table#cart tbody td:before {
+		content: attr(data-th); font-weight: bold;
+		display: inline-block; width: 8rem;
+	}
+	
+	
+	
+	table#cart tfoot td{display:block; }
+	table#cart tfoot td .btn{display:block;}
+	
+}
+
+.cartImg{
+width:100px;
+height:100px;
+}
+
+.unavailable{
+color:red;
+}
+
 </style>
-<!-- JQUERY JS -->
+<!-- JQUERY JS-->
+<script src="https://code.jquery.com/jquery-3.3.1.js"></script> 
+         
 <script src="${js}/jquery.js"></script>
 <script src="${js}/jquery.validate.js"></script>
 
@@ -153,6 +220,7 @@ input:checked+.slider:before {
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.4.0/bootbox.min.js"></script> 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/3.3.0/bootbox.min.js"></script> -->
 
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.4.0/bootbox.min.js"></script>
 
 <script src="${js}/bootbox.min.js"></script>
 
@@ -203,6 +271,10 @@ input:checked+.slider:before {
 
 			<c:if test="${userClickManageProduct==true}">
 				<%@include file="manageProducts.jsp"%>
+			</c:if>
+			
+			<c:if test="${ userClickShowCart==true}">
+				<%@include file="cart.jsp"%>
 			</c:if>
 
 		</div>

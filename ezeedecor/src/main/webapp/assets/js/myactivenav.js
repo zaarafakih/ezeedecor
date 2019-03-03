@@ -24,12 +24,28 @@ $(function() {
 	case 'Manage Products':
 		$('#manageProducts').addClass('active');
 		break;
+		
+	case 'User Cart':
+		$('#userCart').addClass('active');
+		break;
 
 	default:
 		$('#home').addClass('active');
 		// $('#a_' + menu).addClass('active');
 		break;
 
+	}
+	
+	
+	//to tackle csrf token
+	var token=$('meta[name="_csrf"]').attr('content');
+	var header=$('meta[name="_csrf_header"]').attr('content');
+	
+	if(token.length > 0 && header.length > 0){
+		$(document).ajaxSend(function(e,xhr,options){
+			xhr.setRequestHeader(header,token);
+			
+		})
 	}
 
 	// code for jquery datatable
@@ -92,11 +108,21 @@ $(function() {
 											+ '/show/'
 											+ data
 											+ '/product" class="btn btn-primary"><span class="glyphicon glyphicon-eye-open"></span></a>&#160;&#160;';
+									if(userRole=='ADMIN'){
+										str += '<a href="'
+											+ window.contextRoot
+											+ '/manage/'
+											+ data
+											+ '/product" class="btn btn-success"><span class="glyphicon glyphicon-pencil"></span></a>';
+									}else{
+										
+									
 									str += '<a href="'
 											+ window.contextRoot
 											+ '/cart/add/'
 											+ data
 											+ '/product" class="btn btn-success"><span class="glyphicon glyphicon-shopping-cart"></span></a>';
+									}
 									return str;
 								}
 							} ]
@@ -310,6 +336,40 @@ $(function() {
 
 	// ------
 
+	//handling click event of refresh cart button
+	$('button[name="refreshCart"]').click(function(){
+		
+	//fetch cartline id
+		var cartLineId= $(this).attr('value');
+		var countElement=$('#count_'+cartLineId);
+		var originalCount=countElement.attr('value');
+		var currentCount=countElement.val();
+		
+		//work only when count has changed
+		if(currentCount!==originalCount){
+			console.log("current count"+currentCount);
+			console.log("original count"+originalCount);
+			
+			if(currentCount<1 ||currentCount>3){
+				countElement.val(originalCount);
+				window.alert('Product count should be min. 1 & max. 3');
+				bootbox.alert({
+					size:'medium',
+					title:'Error',
+					message:'Product count should be min. 1 & max. 3'
+				});
+			}else{
+				
+				var updateUrl= window.contextRoot+'/cart/'+cartLineId+'/update?count='+currentCount;
+			//forward it to controller
+				window.location.href = updateUrl;
+				
+			}
+			
+		}
+		
+	});
+	
 	
 
 });

@@ -1,6 +1,21 @@
 <%@taglib prefix="sf" uri="http://www.springframework.org/tags/form"%>
 
 <%@include file="../shared/flows-header.jsp" %>
+
+
+<!--  
+<script type="text/javascript">
+function validatePass(){
+	var pass=document.getElementById("password");
+	var confpass=document.getElementById("confirmPassword");
+	if(pass.equals(confpass)){
+		return false;
+	}
+	 return true;
+	
+}
+
+</script> -->
 			<!-- Page Content -->
 <div class="container">
 <div class="row">
@@ -53,7 +68,7 @@ class="form-horizontal" id="registerForm" modelAttribute="userr">
 <div class="form-group">
 <label class="control-label col-md-4">Password</label>
 <div class="col-md-8">
-<sf:input type="password" path="password" class="form-control" placeholder="******"/>
+<sf:input type="password" path="password" class="form-control" placeholder="******" id="password"/>
 <sf:errors path="password" cssClass="help-block" element="em"/>
 </div>
 </div>
@@ -61,10 +76,13 @@ class="form-horizontal" id="registerForm" modelAttribute="userr">
 <div class="form-group">
 <label class="control-label col-md-4">Confirm Password</label>
 <div class="col-md-8">
-<sf:input type="password" path="confirmPassword" class="form-control" placeholder="******"/>
-<sf:errors path="confirmPassword" cssClass="help-block" element="em"/>
+
+<input type="password" name="confirmPassword" id="confirmPassword" class="form-control" placeholder="******"/>
+
+<sf:errors id="confirmPassword" cssClass="help-block" element="em"/>
 </div>
 </div>
+
 
 <div class="form-group">
 <label class="control-label col-md-4">Select Role:</label>

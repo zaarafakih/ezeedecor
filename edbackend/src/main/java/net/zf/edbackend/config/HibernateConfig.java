@@ -60,6 +60,7 @@ public class HibernateConfig {
 		properties.put("show_sql","true");
 		properties.put("format_sql","true");
 		properties.put("hibernate.hbm2ddl.auto", "update");
+		
 		return properties;
 	}
 	
