@@ -276,6 +276,10 @@ color:red;
 			<c:if test="${ userClickShowCart==true}">
 				<%@include file="cart.jsp"%>
 			</c:if>
+			
+			<c:if test="${userClickCallback==true}">
+			<%@include file="callback.jsp"%>
+			</c:if>
 
 		</div>
 

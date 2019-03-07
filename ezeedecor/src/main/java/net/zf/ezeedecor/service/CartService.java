@@ -153,6 +153,24 @@ public class CartService {
 		
 		return response;
 	}
+
+
+	public String resetCart(cart cartt) {
+
+		List<CartLine> cartline=cartlineDAO.list(cartt.getId());
+		
+		for(CartLine c:cartline){
+			cartlineDAO.delete(c);
+		}
+		
+
+		//cartlineDAO.
+		cartt.setCartLines(0);
+		cartt.setGrandTotal(0.0);
+		userDAO.updateCart(cartt);
+		
+		return "success";
+	}
 	
 	
 	

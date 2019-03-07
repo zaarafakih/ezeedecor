@@ -23,6 +23,7 @@ xsi:schemaLocation="http://www.springframework.org/schema/beans
     
     <!-- registered user access -->
     <intercept-url pattern="/cart/**" access="hasAuthority('user')" />
+    <intercept-url pattern="/checkout/**" access="hasAuthority('user')" />
     
     <!-- all visitors -->
 <intercept-url pattern="/**" access="permitAll" />
