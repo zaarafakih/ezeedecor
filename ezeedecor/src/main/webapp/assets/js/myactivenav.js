@@ -371,5 +371,61 @@ $(function() {
 	});
 	
 	
+	//designing jquery
+	
+	$("#floorPlan").resizable();
+	
+	
+	$(".home").draggable({
+		helper:'clone'
+		});
+	
+	$("#canvasDiv").droppable({
+		  accept:".home",
+		  drop:function(event,ui){
+
+	var element=$(ui.helper).clone();
+	$(this).append(element);
+	$(element).draggable({
+	  containment:"#canvasDiv"
+	});
+		  }
+		  });
+	
+	/*
+	$("#preview").on("click",function(){
+		html2canvas($("#canvas"),{onrendered:function(){
+			var image=canvas.toDataURL("image/png");
+			var newData=image.replace(/^data:image\/png/,"data:application/octet-stream");
+			
+			$("#download").attr("href",newData);
+			
+		}
+		
+		});
+	});
+	*/
+	
+	var element=$("#canvasDiv");
+	var getCanvas;
+	$('#preview').on("click",function(){
+		html2canvas(element,{onrendered:function(canvas){
+		$("#previewSection").append(canvas);	
+		getCanvas=canvas;
+		}
+		});
+	
+	
+	$('#download').on("click",function(){
+		var renderImage=getCanvas.toDataURL("image/png");
+		var newData=renderImage.replace(/^data:image\/png/,"data:application/octet-stream");
+	    $("#download").attr("download","ezeedecor_floorplan.png").attr("href",newData);
+		
+	});
+	});
+
+	 
+	
+	
 
 });

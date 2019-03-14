@@ -40,7 +40,7 @@ public class PaypalController {
 		return "redirect:/cart/show?"+response;
 
 		return mv;
-	}*/
+	}
 	
 	@RequestMapping(value="/callback",method=RequestMethod.GET)
 	public ModelAndView success(){
@@ -56,7 +56,7 @@ public class PaypalController {
 
 		return mv;
 	}
-	
+	*/
 	
 	
 	

@@ -78,12 +78,7 @@
             <a class="nav-link" href="${contextRoot}/design">Design</a>
           </li>
           
-          <li id="makeover" class="nav-item">
-            <a class="nav-link" href="${contextRoot}/makeover">MakeOver</a>
-          </li>
-          
-          <li id="samples" class="nav-item">
-            <a class="nav-link" href="${contextRoot}/samples">Samples</a></li>
+         
             
             <security:authorize access="hasAuthority('ADMIN')">
             <li id="manageProducts" class="nav-item" >

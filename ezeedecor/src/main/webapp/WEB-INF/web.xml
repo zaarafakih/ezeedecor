@@ -400,7 +400,7 @@
 	
 	<context-param>
 	<param-name>returnurl</param-name>
-	<param-value>http://localhost:8080/ezeedecor/checkout/callback</param-value>
+	<param-value>http://localhost:8080/ezeedecor/cart/callback</param-value>
 	</context-param>
 	
 	 <welcome-file-list>  

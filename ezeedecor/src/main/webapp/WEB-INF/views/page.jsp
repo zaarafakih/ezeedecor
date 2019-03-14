@@ -8,6 +8,7 @@
 <spring:url var="js" value="/resources/js" />
 <spring:url var="images" value="/resources/images" />
 <spring:url var="fonts" value="/resources/fonts" />
+<spring:url var="designImages" value="/resources/design-images" />
 
 <c:set var="contextRoot" value="${pageContext.request.contextPath}" />
 
@@ -37,19 +38,24 @@
 <!--this is the cdn link-->
 
 <script src="${js}/jquery.js"></script>
+<script
+  src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"
+  integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30="
+  crossorigin="anonymous"></script>
 
 
 
+<!-- 
 
 
 <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o" crossorigin="anonymous"></script>
-<!-- 
+-->
 <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 
- -->
+ 
 
 <!-- 
  <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
@@ -68,7 +74,7 @@
 <link href="${css}/dataTables.bootstrap.css" rel="stylesheet">
 
 
-
+<link href="${css}/jquery-ui.css" rel="stylesheet">
 
 
 
@@ -195,12 +201,68 @@ height:100px;
 color:red;
 }
 
+
+<!--css for design-->
+
+
+.canvas{
+  min-height:"750px";
+   width:"750px";
+   border-style:"solid";
+   border-color: "black";
+   background-color: "#0xFEF9E7";
+}
+
+#canvasDiv{
+
+}
+.storeItem{
+  height:100px;
+  width:100px;
+}
+.floor{
+  height:100px;
+  width:100px;
+}
+.home{
+  z-index:100;
+  position: relative;
+}
+#floorPlan{
+ border-style:"solid";
+   border-color: "black";
+  height:200px;
+  width:200px;
+  z-index:auto;
+  position: relative;
+  resize:both;
+}
+.rug{
+  z-index:95;
+}
+.centerTable{
+  height:50px;
+  width:50px;
+}
+.armChair{
+  height:70px;
+  width:70px;
+}
+
+
+ 
+
+
+
+
+
 </style>
 <!-- JQUERY JS-->
 <script src="https://code.jquery.com/jquery-3.3.1.js"></script> 
          
 <script src="${js}/jquery.js"></script>
 <script src="${js}/jquery.validate.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.js"></script>
 
 <!--  
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.js"></script>
@@ -221,6 +283,13 @@ color:red;
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/3.3.0/bootbox.min.js"></script> -->
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.4.0/bootbox.min.js"></script>
+
+<script src="${js}/jquery-ui.min.js"></script>
+
+<script src="${js}/html2canvas.js"></script>
+<script src="${js}/canvas2Image.js"></script>
+<script src="${js}/jquery.plugin.html2canvas.js"></script>
+<script src="${js}/jspdf.debug.js"></script>
 
 <script src="${js}/bootbox.min.js"></script>
 
@@ -257,10 +326,8 @@ color:red;
 				<%@include file="design.jsp"%>
 			</c:if>
 
-			<c:if test="${userClickMakeover==true}">
-				<%@include file="makeover.jsp"%>
-			</c:if>
-
+		
+			
 			<c:if test="${userClickSamples==true}">
 				<%@include file="samples.jsp"%>
 			</c:if>
@@ -276,12 +343,12 @@ color:red;
 			<c:if test="${ userClickShowCart==true}">
 				<%@include file="cart.jsp"%>
 			</c:if>
-			
-			<c:if test="${userClickCallback==true}">
-			<%@include file="callback.jsp"%>
+			<c:if test="${ userClickCallback==true}">
+				<%@include file="callback.jsp"%>
 			</c:if>
-
-		</div>
+			
+			
+				</div>
 
 		<!-- Footer -->
 		<%@include file="./shared/footer.jsp"%>

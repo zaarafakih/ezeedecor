@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -75,6 +76,21 @@ public class CartController {
 		return "redirect:/cart/show?"+response;
 	}
 	
+	@RequestMapping(value="/callback",method=RequestMethod.GET)
+	public ModelAndView success(){
+		ModelAndView mv=new ModelAndView("page");
+		
+		mv.addObject("title","Transaction Success !");
+		mv.addObject("userClickCallback",true);
+		
+		//cart cartt=userModel.getCart();
+		 //String outcome=cartService.resetCart(cartt);
+		//mv.addObject("outcome",outcome);
+		mv.addObject("cartLines",cartService.getCartLines());
+		
+
+		return mv;
+	}
 	
 	
 }

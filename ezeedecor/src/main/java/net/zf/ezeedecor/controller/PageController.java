@@ -1,5 +1,4 @@
 package net.zf.ezeedecor.controller;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -19,7 +18,6 @@ import net.zf.edbackend.dao.ProductDAO;
 import net.zf.edbackend.dto.Category;
 import net.zf.edbackend.dto.Product;
 import net.zf.ezeedecor.exception.ProductNotFoundException;
-
 @Controller
 public class PageController {
 
