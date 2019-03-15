@@ -17,7 +17,7 @@
 
 <input type="hidden" name="upload" value="1"/>
 <input type='hidden' name='rm' value='2'>
-<input type="hidden" name="currency_code" value="INR" />
+<input type="hidden" name="currency_code" value="USD" />
 
 <input type="hidden" name="return" value="${initParam['returnurl']}"/>
 <input type="hidden" name="cmd" value="_cart"/>
@@ -29,7 +29,7 @@
 <c:forEach items="${cartLines}" var="cartLine">
 <input type="hidden" name="item_number_${i}" value="${i}"/>
 <input type="hidden" name="item_name_${i}" value="${cartLine.product.name}"/>
-<input type="hidden" name="amount_${i}" value="${cartLine.product.unitPrice}"/>
+<input type="hidden" name="amount_${i}" value="${cartLine.product.unitPrice/69.09}"/>
 <input type="hidden" name="quantity_${i}" value="1"/>
 <c:set var="i" value="${i+1}"/>
 </c:forEach>

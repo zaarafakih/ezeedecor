@@ -83,10 +83,12 @@ public class CartController {
 		mv.addObject("title","Transaction Success !");
 		mv.addObject("userClickCallback",true);
 		
+		//String response =
+		
 		//cart cartt=userModel.getCart();
 		 //String outcome=cartService.resetCart(cartt);
 		//mv.addObject("outcome",outcome);
-		mv.addObject("cartLines",cartService.getCartLines());
+		//mv.addObject("cartLines",cartService.getCartLines());
 		
 
 		return mv;

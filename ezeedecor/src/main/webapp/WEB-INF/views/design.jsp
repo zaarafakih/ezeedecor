@@ -163,17 +163,17 @@ crossorigin="anonymous">
 <tr>
 <td>RUG</td>
 <td><img id="rug_1" src="${designImages}/rug_1.png" alt="Rug:Failed To Load"
-  class="home storeItem"/></td>
+  class="home storeItem rug"/></td>
 <td><img id="rug_2" src="${designImages}/rug_2.jpg" alt="Rug:Failed To Load"
-  class="home storeItem"/></td>
+  class="home storeItem rug"/></td>
 <td><img id="rug_3" src="${designImages}/rug_3.png" alt="Rug:Failed To Load"
-  class="home storeItem"/></td>
+  class="home storeItem rug"/></td>
 <td><img id="rug_4" src="${designImages}/rug_4.png" alt="Rug:Failed To Load"
-  class="home storeItem"/></td>
+  class="home storeItem rug"/></td>
 <td><img id="rug_5" src="${designImages}/rug_5.jpg" alt="Rug:Failed To Load"
-  class="home storeItem"/></td>
+  class="home storeItem rug"/></td>
 <td><img id="rug_6" src="${designImages}/rug_6.png" alt="Rug:Failed To Load"
-  class="home storeItem"/></td>
+  class="home storeItem rug"/></td>
 </tr>
 
 
