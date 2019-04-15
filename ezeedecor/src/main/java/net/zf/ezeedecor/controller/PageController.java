@@ -1,4 +1,6 @@
 package net.zf.ezeedecor.controller;
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -34,6 +36,12 @@ public class PageController {
 		mv.addObject("userClickHome", true);
 		// add list of categories
 		mv.addObject("categories", categoryDAO.list());
+		List<Category> categories=categoryDAO.list();
+		for(Category category : categories){
+			List<Product> product=productDAO.listActiveProductsByCategory(category.getId());
+			mv.addObject("product",product);
+		}
+		mv.addObject("products", productDAO.listActiveProducts());
 		return mv;
 	}
 

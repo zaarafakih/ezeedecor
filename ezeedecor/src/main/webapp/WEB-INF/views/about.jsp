@@ -6,25 +6,25 @@
       <div class="col-md-8 mb-5">
         <h2>What We Do</h2>
         <hr>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A deserunt neque tempore recusandae animi soluta quasi? Asperiores rem dolore eaque vel, porro, soluta unde debitis aliquam laboriosam. Repellat explicabo, maiores!</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis optio neque consectetur consequatur magni in nisi, natus beatae quidem quam odit commodi ducimus totam eum, alias, adipisci nesciunt voluptate. Voluptatum.</p>
-        <a class="btn btn-primary btn-lg" href="#">Call to Action &raquo;</a>
+        <p>You can shop for your home based products and design your own floorplans</p>
+        
+        <a class="btn btn-primary btn-lg" href="${contextRoot}/show/all/products">Call to Action &raquo;</a>
       </div>
       <div class="col-md-4 mb-5">
         <h2>Contact Us</h2>
         <hr>
         <address>
-          <strong>Start Bootstrap</strong>
-          <br>3481 Melrose Place
-          <br>Beverly Hills, CA 90210
+          <strong>Ezeedecor</strong>
+          <br>A Road
+          <br>Jai Hind College, Mumbai
           <br>
         </address>
         <address>
           <abbr title="Phone">P:</abbr>
-          (123) 456-7890
+          (022) 222-123
           <br>
           <abbr title="Email">E:</abbr>
-          <a href="mailto:#">name@example.com</a>
+          <a href="mailto:#">help@ezeedecor.com</a>
         </address>
       </div>
     </div>
@@ -33,40 +33,29 @@
     <div class="row">
       <div class="col-md-4 mb-5">
         <div class="card h-100">
-          <img class="card-img-top" src="http://placehold.it/300x200" alt="">
+          <img class="card-img-top" src="${contextRoot}/resources/images/shop-aboutus.PNG" alt="Shop">
           <div class="card-body">
-            <h4 class="card-title">Card title</h4>
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque sequi doloribus.</p>
+            <h4 class="card-title">Shop</h4>
+            <p class="card-text">You can shop for your most needed most favourite home based products in the most efficient manner</p>
           </div>
           <div class="card-footer">
-            <a href="#" class="btn btn-primary">Find Out More!</a>
+            <a href="${contextRoot}/show/all/products" class="btn btn-primary">Find Out More!</a>
           </div>
         </div>
       </div>
       <div class="col-md-4 mb-5">
         <div class="card h-100">
-          <img class="card-img-top" src="http://placehold.it/300x200" alt="">
+          <video class="card-img-top" src="${contextRoot}/resources/images/ezeedecor1.mp4" alt="Tutorial" preload autoplay loop/>
           <div class="card-body">
-            <h4 class="card-title">Card title</h4>
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque sequi doloribus totam ut praesentium aut.</p>
+            <h4 class="card-title">Design</h4>
+            <p class="card-text">You can design your own floorplan using our easy-to-use design interface.</p>
           </div>
           <div class="card-footer">
-            <a href="#" class="btn btn-primary">Find Out More!</a>
+            <a href="${contextRoot}/design" class="btn btn-primary">Find Out More!</a>
           </div>
         </div>
       </div>
-      <div class="col-md-4 mb-5">
-        <div class="card h-100">
-          <img class="card-img-top" src="http://placehold.it/300x200" alt="">
-          <div class="card-body">
-            <h4 class="card-title">Card title</h4>
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque.</p>
-          </div>
-          <div class="card-footer">
-            <a href="#" class="btn btn-primary">Find Out More!</a>
-          </div>
-        </div>
-      </div>
+      
     </div>
     <!-- /.row -->
 
